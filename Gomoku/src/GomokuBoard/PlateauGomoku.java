@@ -17,7 +17,13 @@ public class PlateauGomoku extends Plateau{
     {
         super(_longueur,_largeur);
     }
-
+    public int getIdCase(Position pos) throws java.lang.IndexOutOfBoundsException
+    {
+        if(pos.x>=0&&pos.x<getLargeur()&&pos.y>=0&&pos.y<getLongueur()) {
+            return etatPlateau[pos.x][pos.y];
+        } 
+        else throw new java.lang.IndexOutOfBoundsException();           
+    }
     public boolean CheckLigneId(Position pos, int n,int id)
     {
         int x=pos.x;
