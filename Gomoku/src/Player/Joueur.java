@@ -10,9 +10,11 @@ import GomokuBoard.*;
 /**
  *
  * @author Alexandre Galdéano
+ * @param <T>
  */
-public abstract class Joueur {
-    int id;
+public abstract class Joueur <T extends Plateau>  {
+    protected int id;
+    
     public Joueur(int _id)
     {
         id=_id;
@@ -21,5 +23,5 @@ public abstract class Joueur {
     {
         return id;
     }
-    public abstract Coup genererCoup(Plateau etatJeu);
+    public abstract Coup genererCoup(T etatJeu);
 }

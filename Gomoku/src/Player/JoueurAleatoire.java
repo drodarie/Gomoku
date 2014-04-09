@@ -12,7 +12,7 @@ import GomokuBoard.*;
  *
  * @author Dimitri
  */
-public class JoueurAleatoire extends Joueur{
+public class JoueurAleatoire extends Joueur <Plateau>{
     public JoueurAleatoire (int _id){
         super (_id);
     }
@@ -24,8 +24,8 @@ public class JoueurAleatoire extends Joueur{
      */
     @Override 
     public Coup genererCoup (Plateau etatJeu){
-        int col=Utilitaire.monRandom(0,8);
-        int lig=Utilitaire.monRandom(0,8);
+        int col=Utilitaire.monRandom(0,etatJeu.getLargeur()-1);
+        int lig=Utilitaire.monRandom(0,etatJeu.getLongueur()-1);
         Position position = new Position (lig,col);
         return new Coup (position, id);
     }
