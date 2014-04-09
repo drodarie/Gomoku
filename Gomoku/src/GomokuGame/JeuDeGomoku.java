@@ -12,13 +12,7 @@ import GomokuBoard.*;
  *
  * @author 4lexandre
  */
-public class JeuDeGomoku {
-
-    private Joueur joueurs[];
-    private Joueur joueurCourant;
-    private PlateauGomoku plateau;
-    private int dernierIndex;
-    private boolean premierCoup;
+public class JeuDeGomoku extends JeuDePlateau<PlateauGomoku>{
 
     public JeuDeGomoku() {
         joueurs = new Joueur[2];
@@ -40,6 +34,7 @@ public class JeuDeGomoku {
         joueurCourant = joueurs[dernierIndex];
     }
 
+    @Override
     public void setJoueur(int _ordre, Joueur _joueur) throws java.lang.IndexOutOfBoundsException {
         if (_ordre < 0 || _ordre >= joueurs.length) {
             throw new java.lang.IndexOutOfBoundsException();
@@ -48,28 +43,12 @@ public class JeuDeGomoku {
         }
     }
 
+    @Override
     public void setPlateau(PlateauGomoku _plateau) {
         plateau = _plateau;
     }
 
-    private Joueur joueurSuivant() {
-        int _idCourant = getDernierId();
-        if (_idCourant == 0) {
-            return joueurCourant;
-        } else {
-            dernierIndex = (dernierIndex + 1) % joueurs.length;
-            return joueurs[dernierIndex];
-        }
-    }
-
-    public int getDernierId() {
-        if (premierCoup) {
-            premierCoup = false;
-            return 0;
-        }
-        return joueurCourant.getId();
-    }
-
+    @Override
     public boolean partieTerminee() {
         Position pos = new Position(0,0);
         for(int i=0;i<plateau.getLongueur()-5;i++)
@@ -95,22 +74,8 @@ public class JeuDeGomoku {
         return false;
     }
 
+    @Override
     public boolean coupValide(Coup coup) {
         return plateau.getIdCase(coup.pos)==0;
     }
-
-    public Joueur jouerPartie() {
-        boolean coupValide;
-        while (!partieTerminee()) {
-            joueurCourant = joueurSuivant();
-            Coup c;
-            do {
-                c = joueurCourant.genererCoup(plateau);
-                coupValide = coupValide(c);
-            } while (!coupValide);
-            plateau.jouer(c);
-        }
-        return joueurCourant;
-    }
-
 }
