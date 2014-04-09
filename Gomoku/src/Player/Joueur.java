@@ -12,7 +12,7 @@ import GomokuBoard.*;
  * @author Alexandre Galdéano
  */
 public abstract class Joueur {
-    private int id;
+    int id;
     public Joueur(int _id)
     {
         id=_id;
