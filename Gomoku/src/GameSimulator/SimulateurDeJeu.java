@@ -1,5 +1,7 @@
-package DefaultGameSimulator;
-import DefaultGomokuBoard.*;
+package GameSimulator;
+import GomokuBoard.Position;
+import GomokuBoard.PlateauGomoku;
+import GomokuBoard.Coup;
 import java.util.ArrayList;
 /**
  *

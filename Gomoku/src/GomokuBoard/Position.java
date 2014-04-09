@@ -1,4 +1,4 @@
-package DefaultGomokuBoard;
+package GomokuBoard;
 
 /**
  *
