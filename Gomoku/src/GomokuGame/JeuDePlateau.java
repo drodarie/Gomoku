@@ -9,6 +9,7 @@ package GomokuGame;
 import GomokuBoard.Coup;
 import GomokuBoard.Plateau;
 import Player.Joueur;
+import java.util.ArrayList;
 
 /**
  *
@@ -53,5 +54,9 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
            plateau.jouer(c);
        }
        return joueurCourant;
-   }
+    }
+    
+    public ArrayList<Coup> getSituation (){
+        return plateau.getHistorique();
+    }
 }

@@ -7,7 +7,7 @@
 package Player;
 
 import GomokuBoard.*;
-import java.util.Scanner;
+import java.util.*;
 /**
  *
  * @author Dimitri

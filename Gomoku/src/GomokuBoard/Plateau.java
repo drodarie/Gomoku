@@ -98,4 +98,8 @@ public class Plateau {
         }         
         return l;
     }
+
+    public ArrayList<Coup> getHistorique() {
+        return historique;
+    }
 }
