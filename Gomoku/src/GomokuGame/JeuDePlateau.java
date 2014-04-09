@@ -9,8 +9,6 @@ package GomokuGame;
 import GomokuBoard.Coup;
 import GomokuBoard.Plateau;
 import Player.Joueur;
-import Player.JoueurAleatoire;
-import Player.Utilitaire;
 
 /**
  *
