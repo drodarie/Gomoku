@@ -6,6 +6,8 @@
 
 package Player;
 
+import GameInterface.GameDisplay;
+import GameInterface.GameScanner;
 import GomokuBoard.*;
 import java.util.Scanner;
 /**
@@ -20,19 +22,8 @@ public class JoueurHumain extends Joueur <Plateau>{
     
     @Override
     public Coup genererCoup (Plateau etatJeu){
-        int col = -1, lig = -1;
-        Scanner scan = new Scanner(System.in);
-        
-        while (col<1 || col>etatJeu.getLongueur()){
-            System.out.println("Entrez la colonne de la case.");
-            col = Integer.parseInt(scan.nextLine());
-        }
-        while (lig<1 || lig>etatJeu.getLongueur()){
-            System.out.println("Entrez la colonne de la case.");
-            lig = Integer.parseInt(scan.nextLine());
-        }
-        
-        Position position = new Position (lig,col);
-        return new Coup (position, id);
+        GameDisplay.afficherPlateau(etatJeu);
+        Position p = GameScanner.scanPosition(etatJeu);
+        return new Coup (p, id);
     }
 }

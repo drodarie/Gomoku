@@ -1,6 +1,7 @@
 package GomokuBoard;
 
 import java.util.ArrayList;
+import java.lang.*;
 
 /**
  *
@@ -85,7 +86,11 @@ public class Plateau {
         jouer(new Coup(c.pos,0));
         return c;
     }
-    
+    public int getIdCase(int x, int y) throws IndexOutOfBoundsException
+    {
+        if(x<0||y<0||x>=this.getLongueur()||y>=this.getLargeur()) throw new IndexOutOfBoundsException();
+        else return etatPlateau[x][y];
+    }
     public ArrayList<Position> etatId(int id)
     {
         ArrayList<Position> l = new ArrayList<Position>();

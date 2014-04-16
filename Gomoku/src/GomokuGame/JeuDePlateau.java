@@ -6,6 +6,7 @@
 
 package GomokuGame;
 
+import GameInterface.GameDisplay;
 import GomokuBoard.Coup;
 import GomokuBoard.Plateau;
 import Player.Joueur;
@@ -45,6 +46,7 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
        boolean coupValide;
        while (!partieTerminee()) {
            joueurCourant = joueurSuivant();
+           GameDisplay.afficherPlateau(plateau);
            Coup c;
            do {
                c = joueurCourant.genererCoup(plateau);
@@ -52,6 +54,12 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
            } while (!coupValide);
            plateau.jouer(c);
        }
+       GameDisplay.afficherPlateau(plateau);
        return joueurCourant;
    }
+   
+    public TPlateau getPlateau()
+    {
+        return this.plateau;
+    }
 }
