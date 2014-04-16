@@ -86,7 +86,7 @@ public class Plateau {
         return c;
     }
     
-    public ArrayList<Position> etatId(int id)
+    public ArrayList<Position> getEtatId()
     {
         ArrayList<Position> l = new ArrayList<Position>();
         for(int i = 0 ; i < longueur ; i++)

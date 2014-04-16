@@ -14,6 +14,7 @@ import java.util.ArrayList;
 /**
  *
  * @author 4lexandre
+ * @param <TPlateau>
  */
 public abstract class JeuDePlateau <TPlateau extends Plateau>{
     protected Joueur joueurs[];

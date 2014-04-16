@@ -6,8 +6,8 @@
 
 package Player;
 
-import GomokuBoard.Coup;
-import GomokuBoard.Plateau;
+import GomokuBoard.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -21,6 +21,8 @@ public class JoueurMonteCarlo extends Joueur <Plateau>{
     
     @Override
     public Coup genererCoup(Plateau etatJeu) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Noeud meilleurCoup = new Noeud();
+        ArrayList<Position> positionsPossibles = etatJeu.getEtatId();
+        for (i:)
     }
 }
