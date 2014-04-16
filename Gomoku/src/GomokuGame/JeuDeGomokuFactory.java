@@ -51,9 +51,7 @@ public class JeuDeGomokuFactory implements JeuDePlateauFactory {
 
     private PlateauGomoku recreerPlateau(ArrayList<Coup> situation) {
         PlateauGomoku plateauGomo = new PlateauGomoku();
-        for (Coup c : situation) {
-            plateauGomo.jouer(c);
-        }
+        plateauGomo.initialiser(situation);
         return plateauGomo;
     }
 

@@ -9,7 +9,7 @@ package Player;
 import GameInterface.GameDisplay;
 import GameInterface.GameScanner;
 import GomokuBoard.*;
-import java.util.Scanner;
+import java.util.*;
 /**
  *
  * @author Dimitri

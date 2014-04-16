@@ -10,10 +10,12 @@ import GameInterface.GameDisplay;
 import GomokuBoard.Coup;
 import GomokuBoard.Plateau;
 import Player.Joueur;
+import java.util.ArrayList;
 
 /**
  *
  * @author 4lexandre
+ * @param <TPlateau>
  */
 public abstract class JeuDePlateau <TPlateau extends Plateau>{
     protected Joueur joueurs[];
@@ -56,10 +58,9 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
        }
        GameDisplay.afficherPlateau(plateau);
        return joueurCourant;
-   }
-   
-    public TPlateau getPlateau()
-    {
-        return this.plateau;
+    }
+    
+    public ArrayList<Coup> getSituation (){
+        return plateau.getHistorique();
     }
 }

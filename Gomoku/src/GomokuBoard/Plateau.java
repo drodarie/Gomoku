@@ -98,9 +98,15 @@ public class Plateau {
         {
             for(int j = 0 ; j < largeur ; j++)
             {
-                l.add(new Position(i,j));
+                if (etatPlateau[i][j]==id){
+                    l.add(new Position(i,j));
+                }
             }
         }         
         return l;
+    }
+
+    public ArrayList<Coup> getHistorique() {
+        return historique;
     }
 }
