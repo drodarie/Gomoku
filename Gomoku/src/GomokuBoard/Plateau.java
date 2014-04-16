@@ -101,7 +101,30 @@ public class Plateau {
         return l;
     }
 
-    public ArrayList<Coup> getHistorique() {
-        return historique;
+    public ArrayList<Coup> getSituation() {
+        return (ArrayList<Coup>) historique.clone();
+    }
+    
+    public ArrayList<Integer> getIdJoueurs (){
+        ArrayList<Integer> ids = new ArrayList<>();
+        boolean test;
+        for(int i = 0 ; i < longueur ; i++)
+        {
+            for(int j = 0 ; j < largeur ; j++)
+            {
+                test=true;
+                for (int k=0; k<ids.size();i++){
+                    int id=ids.get(k);
+                    if (etatPlateau[i][j]==id){
+                        test=false;
+                        break;
+                    }
+                }
+                if (test){
+                    ids.add(etatPlateau[i][j]);
+                }
+            }
+        }
+        return ids;
     }
 }
