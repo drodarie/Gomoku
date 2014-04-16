@@ -21,6 +21,14 @@ public class Noeud {
         nbSimulation=0;
     }
 
+    public int getNbVictoire() {
+        return nbVictoire;
+    }
+
+    public int getNbSimulation() {
+        return nbSimulation;
+    }
+    
     public Coup getCoup() {
         return coup;
     }
@@ -32,5 +40,9 @@ public class Noeud {
     
     public void ajouterDefaite (){
         nbSimulation++;
+    }
+    
+    public int getMoyenne (){
+        return (int) nbVictoire/nbSimulation;
     }
 }
