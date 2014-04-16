@@ -86,14 +86,16 @@ public class Plateau {
         return c;
     }
     
-    public ArrayList<Position> getEtatId()
+    public ArrayList<Position> getEtatId(int id)
     {
         ArrayList<Position> l = new ArrayList<Position>();
         for(int i = 0 ; i < longueur ; i++)
         {
             for(int j = 0 ; j < largeur ; j++)
             {
-                l.add(new Position(i,j));
+                if (etatPlateau[i][j]==id){
+                    l.add(new Position(i,j));
+                }
             }
         }         
         return l;
