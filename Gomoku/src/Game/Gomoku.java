@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class Gomoku {
 
-    private JeuDeGomoku jeu;
+    private JeuDeGomoku jeu = new JeuDeGomoku();
     private JeuDeGomokuFactory fact;
 
     public Gomoku() {
@@ -24,11 +24,12 @@ public class Gomoku {
 
     public Gomoku(int nbJoueurHumain) {
         switch (nbJoueurHumain) {
-            case 1:this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSAleatoire(null);
+            case 1:
+                this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSAleatoire();
                 break;
-            case 2:this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSHumain(null);
+            case 2:this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSHumain();
                 break;
-            default:this.jeu = (JeuDeGomoku) fact.CreerPartieAleatoireVSAleatoire(null);
+            default:this.jeu = (JeuDeGomoku) fact.CreerPartieAleatoireVSAleatoire();
         }
     }
     

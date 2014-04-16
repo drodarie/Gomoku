@@ -16,6 +16,31 @@ import java.util.ArrayList;
 public class JeuDeGomokuFactory implements JeuDePlateauFactory {
 
     @Override
+    @SuppressWarnings("empty-statement")
+    public JeuDePlateau CreerPartieHumainVSHumain() {
+        Joueur joueur1 = new JoueurHumain(1);
+        Joueur joueur2 = new JoueurHumain(2);
+        JeuDeGomoku jeu = new JeuDeGomoku(joueur1, joueur2);
+        return jeu;
+    }
+
+    @Override
+    public JeuDePlateau CreerPartieHumainVSAleatoire() {
+        Joueur joueur1 = new JoueurHumain(1);
+        Joueur joueur2 = new JoueurAleatoire(2);
+        JeuDeGomoku jeu = new JeuDeGomoku(joueur1, joueur2);
+        return jeu;
+    }
+
+    @Override
+    public JeuDePlateau CreerPartieAleatoireVSAleatoire() {
+        Joueur joueur1 = new JoueurAleatoire(1);
+        Joueur joueur2 = new JoueurAleatoire(2);
+        JeuDeGomoku jeu = new JeuDeGomoku(joueur1, joueur2);
+        return jeu;
+    }
+    
+    @Override
     public JeuDePlateau CreerPartieHumainVSHumain(ArrayList<Coup> situation) {
         JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
         recreerPartie(situation, jeuGomo);

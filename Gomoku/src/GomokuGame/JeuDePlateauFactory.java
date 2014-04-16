@@ -14,6 +14,9 @@ import java.util.ArrayList;
  * @author 4lexandre
  */
 public interface JeuDePlateauFactory {
+    JeuDePlateau CreerPartieHumainVSHumain();
+    JeuDePlateau CreerPartieHumainVSAleatoire();
+    JeuDePlateau CreerPartieAleatoireVSAleatoire();
     JeuDePlateau CreerPartieHumainVSHumain(ArrayList<Coup> situation);
     JeuDePlateau CreerPartieHumainVSAleatoire(ArrayList<Coup> situation);
     JeuDePlateau CreerPartieAleatoireVSAleatoire(ArrayList<Coup> situation);

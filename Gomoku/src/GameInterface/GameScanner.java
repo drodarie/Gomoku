@@ -18,11 +18,11 @@ public class GameScanner {
     public static Position scanPosition(Plateau unPlateau) {
         boolean valide = false;
         Scanner sc = new Scanner(System.in);
-        int x = 0, y = 0, id;
+        int x, y, id;
         System.out.println("x : ");
-        x = Integer.parseInt(sc.nextLine());
+        x = sc.nextInt();
         System.out.println("y : ");
-        y = Integer.parseInt(sc.nextLine());
+        y = sc.nextInt();
         try {
             id = unPlateau.getIdCase(x, y);
             if (id == 0) {

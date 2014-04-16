@@ -22,11 +22,12 @@ public class GameDisplay {
             for (int j = 0; j < unPlateau.getLargeur(); j++) {
                 pla += ' '+String.valueOf(j);
             }
-            pla +="  ";
+            pla +="\n"
+                    +"y.";
             for (int j = 0; j < unPlateau.getLargeur(); j++) {
                 pla +="--";
             }
-            pla+="\ny\n";
+            pla+="\n";
             for (int i = 0; i < unPlateau.getLongueur(); i++) {
                 pla+=String.valueOf(i)+'|';
                 for (int j = 0; j < unPlateau.getLargeur(); j++) {
