@@ -91,7 +91,7 @@ public class Plateau {
         if(x<0||y<0||x>=this.getLongueur()||y>=this.getLargeur()) throw new IndexOutOfBoundsException();
         else return etatPlateau[x][y];
     }
-    public ArrayList<Position> etatId(int id)
+    public ArrayList<Position> getEtatId(int id)
     {
         ArrayList<Position> l = new ArrayList<Position>();
         for(int i = 0 ; i < longueur ; i++)
@@ -106,7 +106,24 @@ public class Plateau {
         return l;
     }
 
-    public ArrayList<Coup> getHistorique() {
-        return historique;
+    public ArrayList<Coup> getSituation() {
+        return (ArrayList<Coup>) historique.clone();
+    }
+    
+    public ArrayList<Integer> getIdJoueurs(){
+        ArrayList<Integer> ids = new ArrayList<>();
+        for (int i=0; i<longueur;i++){
+            for(int j =0; j<largeur; j++){
+                boolean test=true;
+                for(int k=0; k<ids.size();k++){
+                    if (ids.get(k)==etatPlateau[i][j]){
+                        test=false;
+                        break;
+                    }
+                }
+                if (test) ids.add(etatPlateau[i][j]);
+            }
+        }
+        return ids;
     }
 }

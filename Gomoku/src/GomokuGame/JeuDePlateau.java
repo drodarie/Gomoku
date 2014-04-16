@@ -60,10 +60,6 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
        return joueurCourant;
     }
     
-    public ArrayList<Coup> getSituation (){
-        return plateau.getHistorique();
-    }
-    
     public TPlateau getPlateau()
     {
         return this.plateau;
