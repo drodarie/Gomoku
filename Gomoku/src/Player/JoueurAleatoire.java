@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Player;
 
 import GameInterface.GameDisplay;
 import GomokuBoard.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author Dimitri
  */
-public class JoueurAleatoire extends Joueur <Plateau>{
-    public JoueurAleatoire (int _id){
-        super (_id);
+public class JoueurAleatoire extends Joueur<Plateau> {
+
+    public JoueurAleatoire(int _id) {
+        super(_id);
     }
 
     /**
@@ -23,12 +24,14 @@ public class JoueurAleatoire extends Joueur <Plateau>{
      * @param etatJeu
      * @return random coup
      */
-    @Override 
-    public Coup genererCoup (Plateau etatJeu){
+    @Override
+    public Coup genererCoup(Plateau etatJeu) {
+        int col, lig, index;
         GameDisplay.afficherPlateau(etatJeu);
-        int col=Utilitaire.monRandom(0,etatJeu.getLargeur()-1);
-        int lig=Utilitaire.monRandom(0,etatJeu.getLongueur()-1);
-        Position position = new Position (lig,col);
-        return new Coup (position, id);
+        ArrayList<Position> positionsSimulation = etatJeu.getEtatId(0);
+        index = Utilitaire.monRandom(0, positionsSimulation.size()-1);
+        System.out.println(String.valueOf(index));
+        Position d = positionsSimulation.get(index);
+        return new Coup(d, id);
     }
 }

@@ -44,17 +44,13 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
     }
     
     public abstract boolean coupValide(Coup coup);
+    
     public Joueur jouerPartie() {
        boolean coupValide;
        while (!plateau.partieTerminee(joueurCourant.getId())) {
            joueurCourant = joueurSuivant();
            GameDisplay.afficherPlateau(plateau);
-           Coup c;
-           do {
-               c = joueurCourant.genererCoup(plateau);
-               coupValide = coupValide(c);
-           } while (!coupValide);
-           plateau.jouer(c);
+           plateau.jouer(joueurCourant.genererCoup(plateau));
        }
        GameDisplay.afficherPlateau(plateau);
        return joueurCourant;

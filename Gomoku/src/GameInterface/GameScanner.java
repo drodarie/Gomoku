@@ -16,24 +16,12 @@ import java.util.Scanner;
 public class GameScanner {
 
     public static Position scanPosition(Plateau unPlateau) {
-        boolean valide = false;
         Scanner sc = new Scanner(System.in);
-        int x, y, id;
+        int x, y;
         System.out.println("x : ");
         x = sc.nextInt();
         System.out.println("y : ");
         y = sc.nextInt();
-        try {
-            id = unPlateau.getIdCase(x, y);
-            if (id == 0) {
-                valide = true;
-            } else {
-                System.out.println("La case (" + x + "," + y + ") n'est pas vide !");
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("La position (" + x + "," + y + ") est en dehors du plateau !");
-        }
-
-        return new Position(x, y);
+        return new Position(x-1, y-1);
     }
 }

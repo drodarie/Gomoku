@@ -18,26 +18,17 @@ public class JeuDeGomokuFactory implements JeuDePlateauFactory {
     @Override
     @SuppressWarnings("empty-statement")
     public JeuDePlateau CreerPartieHumainVSHumain() {
-        Joueur joueur1 = new JoueurHumain(1);
-        Joueur joueur2 = new JoueurHumain(2);
-        JeuDeGomoku jeu = new JeuDeGomoku(joueur1, joueur2);
-        return jeu;
+        return new JeuDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSAleatoire() {
-        Joueur joueur1 = new JoueurHumain(1);
-        Joueur joueur2 = new JoueurAleatoire(2);
-        JeuDeGomoku jeu = new JeuDeGomoku(joueur1, joueur2);
-        return jeu;
+        return new JeuDeGomoku(new JoueurHumain(1), new JoueurAleatoire(2));
     }
 
     @Override
     public JeuDePlateau CreerPartieAleatoireVSAleatoire() {
-        Joueur joueur1 = new JoueurAleatoire(1);
-        Joueur joueur2 = new JoueurAleatoire(2);
-        JeuDeGomoku jeu = new JeuDeGomoku(joueur1, joueur2);
-        return jeu;
+        return new JeuDeGomoku(new JoueurAleatoire(1), new JoueurAleatoire(2));
     }
     
     @Override
@@ -63,7 +54,7 @@ public class JeuDeGomokuFactory implements JeuDePlateauFactory {
 
     @Override
     public void recreerPartie(ArrayList<Coup> situation, JeuDePlateau jeuPlateau) {
-        int idCourant = situation.get(situation.lastIndexOf(situation)).id;
+        int idCourant = situation.get(situation.lastIndexOf(situation)+1).id;
         jeuPlateau.setPlateau(recreerPlateau(situation));
         for (int i = 0; i < jeuPlateau.joueurs.length; i++) {
             if (idCourant == jeuPlateau.joueurs[i].getId()) {

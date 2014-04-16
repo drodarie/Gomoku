@@ -19,6 +19,6 @@ public class Utilitaire {
      * @return rand number between min and max
      */
     public static int monRandom (int min, int max){
-        return min+(int) Math.random()*(max-min);
+        return min+(int) (Math.random()*(max-min));
     }
 }

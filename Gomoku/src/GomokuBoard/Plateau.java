@@ -62,11 +62,12 @@ public abstract class Plateau {
     
     public void jouer(Coup c) 
     {
-        if(c.pos.x > 0 && c.pos.x <= longueur && c.pos.y > 0 && c.pos.y <= largeur)
+        if(c.pos.x >= 0 && c.pos.x < longueur && c.pos.y >= 0 && c.pos.y < largeur)
         {
-            etatPlateau[c.pos.x -1][c.pos.y -1] = c.id;
+            etatPlateau[c.pos.x][c.pos.y] = c.id;
             historique.add(c);
         }
+        
         else
         {
             System.out.println("Coup en dehors du plateau !");
@@ -93,7 +94,7 @@ public abstract class Plateau {
     }
     public ArrayList<Position> getEtatId(int id)
     {
-        ArrayList<Position> l = new ArrayList<Position>();
+        ArrayList<Position> l = new ArrayList<>();
         for(int i = 0 ; i < longueur ; i++)
         {
             for(int j = 0 ; j < largeur ; j++)

@@ -20,7 +20,7 @@ public class GameDisplay {
             String pla = " x";
             int id;
             for (int j = 0; j < unPlateau.getLargeur(); j++) {
-                pla += ' '+String.valueOf(j);
+                pla += ' '+String.valueOf(j+1);
             }
             pla +="\n"
                     +"y.";
@@ -29,7 +29,7 @@ public class GameDisplay {
             }
             pla+="\n";
             for (int i = 0; i < unPlateau.getLongueur(); i++) {
-                pla+=String.valueOf(i)+'|';
+                pla+=String.valueOf(i+1)+'|';
                 for (int j = 0; j < unPlateau.getLargeur(); j++) {
                     pla += ' ';
                     id = unPlateau.getIdCase(i, j);

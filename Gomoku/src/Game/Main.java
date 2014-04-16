@@ -33,8 +33,8 @@ public class Main {
         System.out.print("Tapez sur une touche pour executer l'étape 2\n");
         sc.nextLine();
         ArrayList<Coup> situation = new ArrayList<>();
-        situation.add(new Coup(new Position(8,9), 1));
-        situation.add(new Coup(new Position(1,1), 2));
+        situation.add(new Coup(new Position(8-1,9-1), 1));
+        situation.add(new Coup(new Position(1-1,1-1), 2));
         System.out.println("Situation créée.");
         jeu = new Gomoku(1, situation);
         System.out.println("Plateau généré. Affichage :");
