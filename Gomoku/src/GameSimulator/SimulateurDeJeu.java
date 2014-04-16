@@ -18,7 +18,7 @@ public class SimulateurDeJeu {
         PlateauGomoku p = new PlateauGomoku(6,7);
         System.out.println(p);
         System.out.println("Chargement d'une configuration initiale");
-        ArrayList<Coup> positionInitiale = new ArrayList<Coup>();
+        ArrayList<Coup> positionInitiale = new ArrayList<>();
         positionInitiale.add(new Coup(new Position(1,1),2));
         positionInitiale.add(new Coup(new Position(1,2),4));
         positionInitiale.add(new Coup(new Position(2,1),2));

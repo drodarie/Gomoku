@@ -18,13 +18,14 @@ public class JeuDeGomokuFactory implements JeuDePlateauFactory {
     @Override
     public JeuDePlateau CreerPartieHumainVSHumain(ArrayList<Coup> situation) {
         JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
-
+        recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSAleatoire(ArrayList<Coup> situation) {
         JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurHumain(1), new JoueurAleatoire(2));
+        recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
 
