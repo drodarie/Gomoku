@@ -60,5 +60,31 @@ public class PlateauGomoku extends Plateau{
         {
             return false;
         }
-    }   
+    }
+    
+    @Override
+    public boolean partieTerminee(int id) {
+        Position pos = new Position(0,0);
+        for(int i=0;i<longueur-5;i++)
+        {
+            pos.x=i+1;
+            for(int j=0;j<largeur;j++)
+            {
+                pos.y=j+1;
+                if(CheckColonneId(pos, 5, id))
+                    return true;     
+            }
+        }
+        for(int i=0;i<longueur;i++)
+        {
+            pos.x=i+1;
+            for(int j=0;j<largeur-5;j++)
+            {
+                pos.y=j+1;
+                if(CheckLigneId(pos, 5,id))
+                    return true;     
+            }
+        }
+        return false;
+    }
 }

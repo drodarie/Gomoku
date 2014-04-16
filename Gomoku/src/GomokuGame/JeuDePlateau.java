@@ -42,11 +42,11 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
         }
         return joueurCourant.getId();
     }
-    public abstract boolean partieTerminee();
+    
     public abstract boolean coupValide(Coup coup);
     public Joueur jouerPartie() {
        boolean coupValide;
-       while (!partieTerminee()) {
+       while (!plateau.partieTerminee(joueurCourant.getId())) {
            joueurCourant = joueurSuivant();
            GameDisplay.afficherPlateau(plateau);
            Coup c;

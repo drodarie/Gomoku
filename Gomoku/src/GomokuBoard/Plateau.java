@@ -9,7 +9,7 @@ import java.lang.*;
  * Attention ! Le code proposé est loin d'être parfait et est susceptible d'être 
  * amélioré par vos soins. 
  */
-public class Plateau {
+public abstract class Plateau {
     protected int longueur; //longueur = nombre de lignes
     protected int largeur; //largeur = nombre de colonnes
     protected int[][] etatPlateau;
@@ -126,4 +126,6 @@ public class Plateau {
         }
         return ids;
     }
+    
+    public abstract boolean partieTerminee(int id);
 }

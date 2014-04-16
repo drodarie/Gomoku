@@ -49,32 +49,6 @@ public class JeuDeGomoku extends JeuDePlateau<PlateauGomoku>{
     }
 
     @Override
-    public boolean partieTerminee() {
-        Position pos = new Position(0,0);
-        for(int i=0;i<plateau.getLongueur()-5;i++)
-        {
-            pos.x=i+1;
-            for(int j=0;j<plateau.getLargeur();j++)
-            {
-                pos.y=j+1;
-                if(plateau.CheckColonneId(pos, 5, joueurCourant.getId()))
-                    return true;     
-            }
-        }
-        for(int i=0;i<plateau.getLongueur();i++)
-        {
-            pos.x=i+1;
-            for(int j=0;j<plateau.getLargeur()-5;j++)
-            {
-                pos.y=j+1;
-                if(plateau.CheckLigneId(pos, 5, joueurCourant.getId()))
-                    return true;     
-            }
-        }
-        return false;
-    }
-
-    @Override
     public boolean coupValide(Coup coup) {
         return plateau.getIdCase(coup.pos)==0;
     }
