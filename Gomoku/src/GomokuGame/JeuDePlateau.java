@@ -49,10 +49,8 @@ public abstract class JeuDePlateau <TPlateau extends Plateau>{
        boolean coupValide;
        while (!plateau.partieTerminee(joueurCourant.getId())) {
            joueurCourant = joueurSuivant();
-           GameDisplay.afficherPlateau(plateau);
            plateau.jouer(joueurCourant.genererCoup(plateau));
        }
-       GameDisplay.afficherPlateau(plateau);
        return joueurCourant;
     }
     

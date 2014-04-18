@@ -30,7 +30,6 @@ public class JoueurAleatoire extends Joueur<Plateau> {
         GameDisplay.afficherPlateau(etatJeu);
         ArrayList<Position> positionsSimulation = etatJeu.getEtatId(0);
         index = Utilitaire.monRandom(0, positionsSimulation.size()-1);
-        System.out.println(String.valueOf(index));
         Position d = positionsSimulation.get(index);
         return new Coup(d, id);
     }

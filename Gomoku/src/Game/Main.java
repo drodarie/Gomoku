@@ -5,10 +5,6 @@
  */
 package Game;
 
-import GameInterface.GameDisplay;
-import GomokuBoard.Coup;
-import GomokuBoard.Position;
-import Player.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 

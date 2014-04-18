@@ -37,7 +37,7 @@ public class Gomoku {
                         this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSMonteCarlo();
                         break;
                     default:
-                        this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSMonteCarlo();
+                        this.jeu = (JeuDeGomoku) fact.CreerPartieHumainVSAleatoire();
                 }
                 break;
             case 2:
@@ -49,7 +49,7 @@ public class Gomoku {
                         this.jeu = (JeuDeGomoku) fact.CreerPartieMonteCarloVSMonteCarlo();
                         break;
                     default:
-                        this.jeu = (JeuDeGomoku) fact.CreerPartieMonteCarloVSMonteCarlo();
+                        this.jeu = (JeuDeGomoku) fact.CreerPartieAleatoireVSAleatoire();
                 }
         }
     }
