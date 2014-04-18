@@ -19,45 +19,24 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
+        String titreMenu = "Bienvenue sur le jeu de Gomoku !\nQue voulez-vous faire ? (appuyez sur entrée pour valider)";
+        ArrayList<String> menu = new ArrayList<>();
+        menu.add("0. Lancer le test");
+        menu.add("1. Lancer une partie humain contre IA aléatoire");
+        menu.add("2. Lancer une partie humain contre IA Monte-Carlo");
+        menu.add("3. Lancer une partie humain contre humain sur un plateau torique");
         Scanner sc = new Scanner(System.in);
-        Gomoku jeu;
-        JoueurHumain humain = new JoueurHumain(1);
-        JoueurAleatoire alea = new JoueurAleatoire(2);
-        // 1 ---------------
-        System.out.print("Tapez sur une touche pour executer l'étape 1\n");
-        sc.nextLine();
-        jeu = new Gomoku(1);
-        System.out.println("Plateau vide généré. Affichage :");
-        GameDisplay.afficherPlateau(jeu.getJeuDeGomoku().getPlateau());
-        // 2 ---------------
-        System.out.print("Tapez sur une touche pour executer l'étape 2\n");
-        sc.nextLine();
-        ArrayList<Coup> situation = new ArrayList<>();
-        situation.add(new Coup(new Position(8-1,9-1), 1));
-        situation.add(new Coup(new Position(1-1,1-1), 2));
-        System.out.println("Situation créée.");
-        jeu = new Gomoku(1, situation);
-        System.out.println("Plateau généré. Affichage :");
-        GameDisplay.afficherPlateau(jeu.getJeuDeGomoku().getPlateau());
-        // 3 ---------------
-        System.out.print("Tapez sur une touche pour executer l'étape 3\n");
-        sc.nextLine();
-        situation.add(humain.genererCoup(jeu.getJeuDeGomoku().getPlateau()));
-        System.out.println("Situation créée.");
-        jeu = new Gomoku(1, situation);
-        System.out.println("Plateau généré. Affichage :");
-        GameDisplay.afficherPlateau(jeu.getJeuDeGomoku().getPlateau());
-        // 4 ---------------
-        System.out.print("Tapez sur une touche pour executer l'étape 4\n");
-        sc.nextLine();
-        situation.add(alea.genererCoup(jeu.getJeuDeGomoku().getPlateau()));
-        System.out.println("Situation créée.");
-        jeu = new Gomoku(1, situation);
-        System.out.println("Plateau généré. Affichage :");
-        GameDisplay.afficherPlateau(jeu.getJeuDeGomoku().getPlateau());
-        // 5 ---------------
-        System.out.print("Tapez sur une touche pour executer l'étape 5\n");
-        sc.nextLine();
-        jeu.run();
+        int choix;
+        System.out.println(titreMenu);
+        for(String str : menu) System.out.println(str);
+        do{
+            choix=sc.nextInt();
+        }while(choix<0||choix>menu.size());
+        switch(choix)
+        {
+            default:{
+                Gomoku.testGomoku();
+            }
+        }
     }
 }

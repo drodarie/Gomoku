@@ -17,8 +17,12 @@ public interface JeuDePlateauFactory {
     JeuDePlateau CreerPartieHumainVSHumain();
     JeuDePlateau CreerPartieHumainVSAleatoire();
     JeuDePlateau CreerPartieAleatoireVSAleatoire();
+    JeuDePlateau CreerPartieHumainVSMonteCarlo();
+    JeuDePlateau CreerPartieMonteCarloVSMonteCarlo();
     JeuDePlateau CreerPartieHumainVSHumain(ArrayList<Coup> situation);
     JeuDePlateau CreerPartieHumainVSAleatoire(ArrayList<Coup> situation);
     JeuDePlateau CreerPartieAleatoireVSAleatoire(ArrayList<Coup> situation);
+    JeuDePlateau CreerPartieHumainVSMonteCarlo(ArrayList<Coup> situation);
+    JeuDePlateau CreerPartieMonteCarloVSMonteCarlo(ArrayList<Coup> situation);
     void recreerPartie(ArrayList<Coup> situation, JeuDePlateau jeuPlateau);
 }

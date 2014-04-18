@@ -5,7 +5,8 @@
  */
 package GomokuGame;
 
-import GomokuBoard.*;
+import GomokuBoard.Coup;
+import GomokuBoard.PlateauToriqueGomoku;
 import Player.*;
 import java.util.ArrayList;
 
@@ -13,41 +14,41 @@ import java.util.ArrayList;
  *
  * @author 4lexandre
  */
-public class JeuDeGomokuFactory implements JeuDePlateauFactory {
+public class JeuToriqueDeGomokuFactory implements JeuDePlateauFactory {
 
     @Override
     @SuppressWarnings("empty-statement")
     public JeuDePlateau CreerPartieHumainVSHumain() {
-        return new JeuDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
+        return new JeuToriqueDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSAleatoire() {
-        return new JeuDeGomoku(new JoueurHumain(1), new JoueurAleatoire(2));
+        return new JeuToriqueDeGomoku(new JoueurHumain(1), new JoueurAleatoire(2));
     }
 
     @Override
     public JeuDePlateau CreerPartieAleatoireVSAleatoire() {
-        return new JeuDeGomoku(new JoueurAleatoire(1), new JoueurAleatoire(2));
+        return new JeuToriqueDeGomoku(new JoueurAleatoire(1), new JoueurAleatoire(2));
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSHumain(ArrayList<Coup> situation) {
-        JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
+        JeuToriqueDeGomoku jeuGomo = new JeuToriqueDeGomoku(new JoueurHumain(1), new JoueurHumain(2));
         recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSAleatoire(ArrayList<Coup> situation) {
-        JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurHumain(1), new JoueurAleatoire(2));
+        JeuToriqueDeGomoku jeuGomo = new JeuToriqueDeGomoku(new JoueurHumain(1), new JoueurAleatoire(2));
         recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
 
     @Override
     public JeuDePlateau CreerPartieAleatoireVSAleatoire(ArrayList<Coup> situation) {
-        JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurAleatoire(1), new JoueurAleatoire(2));
+        JeuToriqueDeGomoku jeuGomo = new JeuToriqueDeGomoku(new JoueurAleatoire(1), new JoueurAleatoire(2));
         recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
@@ -65,32 +66,32 @@ public class JeuDeGomokuFactory implements JeuDePlateauFactory {
         }
     }
 
-    private PlateauGomoku recreerPlateau(ArrayList<Coup> situation) {
-        PlateauGomoku plateauGomo = new PlateauGomoku();
+    private PlateauToriqueGomoku recreerPlateau(ArrayList<Coup> situation) {
+        PlateauToriqueGomoku plateauGomo = new PlateauToriqueGomoku();
         plateauGomo.initialiser(situation);
         return plateauGomo;
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSMonteCarlo() {
-        return new JeuDeGomoku(new JoueurHumain(1), new JoueurMonteCarlo(2, 20));
+        return new JeuToriqueDeGomoku(new JoueurHumain(1), new JoueurMonteCarlo(2, 20));
     }
 
     @Override
     public JeuDePlateau CreerPartieMonteCarloVSMonteCarlo() {
-        return new JeuDeGomoku(new JoueurMonteCarlo(1, 20), new JoueurMonteCarlo(2, 20));
+        return new JeuToriqueDeGomoku(new JoueurMonteCarlo(1, 20), new JoueurMonteCarlo(2, 20));
     }
 
     @Override
     public JeuDePlateau CreerPartieHumainVSMonteCarlo(ArrayList<Coup> situation) {
-        JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurHumain(1), new JoueurMonteCarlo(2, 20));
+        JeuToriqueDeGomoku jeuGomo = new JeuToriqueDeGomoku(new JoueurHumain(1), new JoueurMonteCarlo(2, 20));
         recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
 
     @Override
     public JeuDePlateau CreerPartieMonteCarloVSMonteCarlo(ArrayList<Coup> situation) {
-        JeuDeGomoku jeuGomo = new JeuDeGomoku(new JoueurMonteCarlo(1, 20), new JoueurMonteCarlo(2, 20));
+        JeuToriqueDeGomoku jeuGomo = new JeuToriqueDeGomoku(new JoueurMonteCarlo(1, 20), new JoueurMonteCarlo(2, 20));
         recreerPartie(situation, jeuGomo);
         return jeuGomo;
     }
