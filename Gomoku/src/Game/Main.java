@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Game;
 
 import GameInterface.GameDisplay;
@@ -18,6 +17,7 @@ import java.util.Scanner;
  * @author 4lexandre
  */
 public class Main {
+
     public static void main(String[] args) {
         String titreMenu = "Bienvenue sur le jeu de Gomoku !\nQue voulez-vous faire ? (appuyez sur entrée pour valider)";
         ArrayList<String> menu = new ArrayList<>();
@@ -28,13 +28,26 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int choix;
         System.out.println(titreMenu);
-        for(String str : menu) System.out.println(str);
-        do{
-            choix=sc.nextInt();
-        }while(choix<0||choix>menu.size());
-        switch(choix)
-        {
-            default:{
+        for (String str : menu) {
+            System.out.println(str);
+        }
+        do {
+            choix = sc.nextInt();
+        } while (choix < 0 || choix > menu.size());
+        switch (choix) {
+            case 1:
+                Gomoku jeu1 = new Gomoku(1, 0);
+                jeu1.run();
+                break;
+            case 2:
+                Gomoku jeu2 = new Gomoku(1, 1);
+                jeu2.run();
+                break;
+            case 3:
+                GomokuTorique jeu3 = new GomokuTorique(2, 0);
+                jeu3.run();
+                break;
+            default: {
                 Gomoku.testGomoku();
             }
         }

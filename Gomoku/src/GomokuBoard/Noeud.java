@@ -43,6 +43,6 @@ public class Noeud {
     }
     
     public int getMoyenne (){
-        return (int) nbVictoire/nbSimulation;
+        return (int) (nbVictoire/nbSimulation);
     }
 }
