@@ -14,6 +14,10 @@ public class Coup {
         pos= _pos;
         id = _id;
     }
+
+    public int getId() {
+        return id;
+    }
     
     @Override
     public String toString()

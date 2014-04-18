@@ -116,13 +116,15 @@ public abstract class Plateau {
         for (int i=0; i<longueur;i++){
             for(int j =0; j<largeur; j++){
                 boolean test=true;
-                for(int k=0; k<ids.size();k++){
-                    if (ids.get(k)==etatPlateau[i][j]){
-                        test=false;
-                        break;
+                if (etatPlateau[i][j]!=0){
+                    for(int k=0; k<ids.size();k++){
+                        if (ids.get(k)==etatPlateau[i][j]){
+                            test=false;
+                            break;
+                        }
                     }
+                    if (test) ids.add(etatPlateau[i][j]);
                 }
-                if (test) ids.add(etatPlateau[i][j]);
             }
         }
         return ids;

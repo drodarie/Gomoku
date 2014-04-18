@@ -31,11 +31,40 @@ public class JoueurMonteCarlo extends Joueur<Plateau> {
     public JoueurMonteCarlo(int _id, int _nbSimulation) {
         super(_id);
     }
-
+    
+    public boolean simulerAdversaires (Plateau etatJeu,ArrayList<Integer> ids){
+        int i=0;
+        while (i < ids.size() - 1) {
+                if (simuler(ids.get(i), etatJeu)) {
+                    return false;
+                }
+                i++;
+        }
+        return true;
+    }
+    
+    public boolean tourMonteCarlo (Noeud n, Plateau etatJeu, ArrayList<Integer> ids){
+        Coup coup = null;
+        ArrayList<Coup> sit = etatJeu.getSituation();
+        boolean res;
+        if (simuler(id, etatJeu)){
+            res = true;
+        }
+        else if (simulerAdversaires(etatJeu, ids)) {
+            res = tourMonteCarlo(n,etatJeu,ids);
+        } 
+        else {
+            res = false;
+        }
+        etatJeu.initialiser(sit);
+        return res;
+    }
+    
     @Override
     public Coup genererCoup(Plateau etatJeu) {
         Noeud meilleurCoup = null;
         ArrayList<Position> positionsPossibles = etatJeu.getEtatId(0);
+        
         ArrayList<Integer> ids = etatJeu.getIdJoueurs();
         for (int i = 0; i < ids.size(); i++) {
             if (ids.get(i) == id) {
@@ -44,39 +73,33 @@ public class JoueurMonteCarlo extends Joueur<Plateau> {
                 break;
             }
         }
-
+        
+        ArrayList<Coup> sit = etatJeu.getSituation();
         for (Position p : positionsPossibles) {
             Coup cCourant = new Coup(p, id);
             Noeud nCourant = new Noeud(cCourant);
+            
             etatJeu.jouer(cCourant);
-
-            ArrayList<Coup> sit = etatJeu.getSituation();
-            int i = 0;
-            boolean test = true;
-
-            while (i < ids.size() - 1) {
-                ArrayList<Position> positionsSimulation = etatJeu.getEtatId(0);
-
-                if (simuler(ids.get(i), etatJeu)) {
-                    test = false;
-                    break;
-                }
-                i++;
+            if (etatJeu.partieTerminee(id)) {
+                nCourant.ajouterVictoire();
             }
-            if (test) {
-                if (simuler(id, etatJeu)) {
-                    nCourant.ajouterVictoire();
-                } else {
-                    nCourant.ajouterDefaite();
-                }
-            } else {
+            else if (simulerAdversaires(etatJeu, ids)) {
+                for (int i=0; i<100; i++){
+                    if (tourMonteCarlo(nCourant,etatJeu,ids)){
+                        nCourant.ajouterVictoire();
+                    }
+                    else{
+                        nCourant.ajouterDefaite();
+                    }
+                }    
+            } 
+            else {
                 nCourant.ajouterDefaite();
             }
             etatJeu.initialiser(sit);
             if (meilleurCoup == null || meilleurCoup.getMoyenne() < nCourant.getMoyenne()) {
                 meilleurCoup = nCourant;
             }
-            etatJeu.annuler();
         }
         return meilleurCoup.getCoup();
     }
